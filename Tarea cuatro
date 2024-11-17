@@ -1,0 +1,189 @@
+
+import java.util.ArrayList;
+
+class Estadio {
+    private String nombre;
+    private int capacidad;
+    private ArrayList <Concierto> conciertos;
+
+    //Getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public int getCapacidad() { 
+        return capacidad;
+    }
+    public void setCapacidad(int newCapaciddad) {
+        this.capacidad = newCapaciddad;
+    }
+    //Constructor
+    public Estadio (String nombre, int capacidad) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.conciertos = new ArrayList<>();
+    }
+    //Mostrar informacion
+    public void mostrarInformacion() {
+        System.out.println("Nombre del estadio es" + getNombre());
+        System.out.println("La capacidad del estadio es de " + getCapacidad() + " personas");
+    }
+    //Métodos para agregar y remover conciertos
+    public void addConcierto(Concierto concierto) {
+        conciertos.add(concierto);
+    }
+    public void removeConcerto(Concierto concierto) {
+        conciertos.remove(concierto);
+    }
+}
+    class Concierto {
+        private String nombre;
+        private java.util.Date fecha;
+        private ArrayList <Artista> artistas;
+        private ArrayList <Espectador> espectadores;
+
+        //Getters y setters
+        public String getNombre() {
+            return nombre;
+        }
+        public void setNombre(String newNombre) {
+            this.nombre = newNombre;
+        }
+        public java.util.Date getFecha() {
+            return fecha;
+        }
+        public void setFecha(java.util.Date newFecha) {
+            this.fecha = newFecha;
+        }
+        //Constructor
+        public Concierto(String nombre, java.util.Date fecha) {
+            this.nombre = nombre;
+            this.fecha = fecha;
+            this.artistas = new ArrayList<>();
+            this.espectadores = new ArrayList<>();
+        }
+        //Métodos para agregar y remover espectadores
+        public void addEspectador(Espectador espectador) {
+            espectadores.add(espectador);
+        }
+        public void removeEspectador(Espectador espectador) {
+            espectadores.remove(espectador);
+        }
+        //métodos para agregar y remover artistas
+        public void addArtista(Artista artista) {
+            artistas.add(artista);
+        }
+        public void removeArtista(Artista artista) {
+            artistas.remove(artista);
+        }
+        //Método para contar espectadores
+        public int contarEspectadores() {
+            return espectadores.size();
+        }
+        //Método para mostrar información
+        public void mostrarInformacion() {
+        //METODO DONDE SE DEBERA PONER TODOS LOS DEMAS
+        }
+}
+class Artista {
+    private String nombre;
+
+    //Getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String newNombre) {
+        this.nombre = newNombre;
+    }
+    //Constructor
+    public Artista (String nombre) {
+        this.nombre = nombre;
+    }
+
+    //metodo para mostrar información del artista
+    public void mostrarInformacion() {
+    System.out.println("El nombre del artista es:" +getNombre());
+    }
+}
+
+class Solista extends Artista {
+
+    private String seudonimo;
+
+    //Getters y setters
+    public String getSeudonimo() {
+        return seudonimo;
+    }
+    public void setSeudonimo(String newSeudonimo) {
+        this.seudonimo = newSeudonimo;
+    }
+    //método constructor
+    public Solista(String nombre, String seudonimo) {
+        super(nombre);
+        this.seudonimo = seudonimo;
+    }
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("El nombre del solista es: " + getNombre());
+        System.out.println("Tambien conocido como:" + getSeudonimo());
+    }
+}
+
+class Orquesta extends Artista {
+
+    private int numeroDeIntegrantes;
+
+    //Getters y setters
+    public int getNumeroDeIntegrantes() {
+        return numeroDeIntegrantes;
+    }
+    public void setNumeroDeIntegrantes(int newNumeroDeIntegrantes) {
+       this.numeroDeIntegrantes = newNumeroDeIntegrantes;
+    }
+    //Constructor
+    public Orquesta (String nombre, int numeroDeIntegrantes) {
+        super(nombre);
+        this.numeroDeIntegrantes = numeroDeIntegrantes;
+    }
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("El nombre de la orquesta es: " + getNombre());
+        System.out.println("Numero de integrantes: " + getNumeroDeIntegrantes());
+    }
+}
+class Espectador{
+
+    private String nombre;
+    private String cedula;
+
+    //Getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String newNombre) {
+        this.nombre = newNombre;
+    }
+    public String getCedula() {
+        return cedula;
+    }
+    public void setCedula(String newCedula) {
+        this.cedula = newCedula;
+    }
+    //Constructor
+    public Espectador(String nombre, String cedula){
+        this.nombre = nombre;
+        this.cedula = cedula;
+    }
+    //método para mostrar la informacion
+    public void mostrarInformacion() {
+        System.out.println("Nombre" + getNombre());
+        System.out.println("Cedula" +getCedula());
+    }
+}
+
+public class TestConcierto {
+    public static void main(String[] args) {
+    }
+}
