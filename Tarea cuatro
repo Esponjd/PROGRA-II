@@ -19,17 +19,24 @@ class Estadio {
     public void setCapacidad(int newCapaciddad) {
         this.capacidad = newCapaciddad;
     }
+
     //Constructor
     public Estadio (String nombre, int capacidad) {
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.conciertos = new ArrayList<>();
     }
-    //Mostrar informacion
+
+    //Mostrar informacion del estadio
     public void mostrarInformacion() {
-        System.out.println("Nombre del estadio es" + getNombre());
-        System.out.println("La capacidad del estadio es de " + getCapacidad() + " personas");
+        System.out.println("Nombre del estadio: " + getNombre());
+        System.out.println("Capacidad: " +getCapacidad() + " personas \n");
+        System.out.println("Próximos conciertos:");
+        for (Concierto concierto : conciertos) {
+            System.out.println(concierto.getNombre());
+        }
     }
+
     //Métodos para agregar y remover conciertos
     public void addConcierto(Concierto concierto) {
         conciertos.add(concierto);
@@ -38,9 +45,11 @@ class Estadio {
         conciertos.remove(concierto);
     }
 }
+
     class Concierto {
         private String nombre;
         private java.util.Date fecha;
+        private Estadio estadio;
         private ArrayList <Artista> artistas;
         private ArrayList <Espectador> espectadores;
 
@@ -57,13 +66,16 @@ class Estadio {
         public void setFecha(java.util.Date newFecha) {
             this.fecha = newFecha;
         }
+
         //Constructor
-        public Concierto(String nombre, java.util.Date fecha) {
+        public Concierto(String nombre, java.util.Date fecha, Estadio estadio) {
             this.nombre = nombre;
             this.fecha = fecha;
+            this.estadio = estadio;
             this.artistas = new ArrayList<>();
             this.espectadores = new ArrayList<>();
         }
+
         //Métodos para agregar y remover espectadores
         public void addEspectador(Espectador espectador) {
             espectadores.add(espectador);
@@ -71,6 +83,7 @@ class Estadio {
         public void removeEspectador(Espectador espectador) {
             espectadores.remove(espectador);
         }
+
         //métodos para agregar y remover artistas
         public void addArtista(Artista artista) {
             artistas.add(artista);
@@ -78,13 +91,26 @@ class Estadio {
         public void removeArtista(Artista artista) {
             artistas.remove(artista);
         }
+
         //Método para contar espectadores
         public int contarEspectadores() {
             return espectadores.size();
         }
+
         //Método para mostrar información
         public void mostrarInformacion() {
-        //METODO DONDE SE DEBERA PONER TODOS LOS DEMAS
+            System.out.println("¡Bienvedido!");
+            estadio.mostrarInformacion();
+            System.out.println("Concierto: " + getNombre());
+            System.out.println("Fecha: " + getFecha() + "\n" );
+            System.out.println("Lista de artistas:");
+            for (Artista artista : artistas) {
+                artista.mostrarInformacion();
+            }
+            System.out.println("Número de espectadores: " + contarEspectadores() + "\n");
+            for (Espectador espectador : espectadores) {
+                espectador.mostrarInformacion();
+            }
         }
 }
 class Artista {
@@ -126,8 +152,8 @@ class Solista extends Artista {
     }
     @Override
     public void mostrarInformacion() {
-        System.out.println("El nombre del solista es: " + getNombre());
-        System.out.println("Tambien conocido como:" + getSeudonimo());
+        System.out.println("Solista: " + getNombre());
+        System.out.println("También conocido como: " + getSeudonimo() + "\n");
     }
 }
 
@@ -149,8 +175,8 @@ class Orquesta extends Artista {
     }
     @Override
     public void mostrarInformacion() {
-        System.out.println("El nombre de la orquesta es: " + getNombre());
-        System.out.println("Numero de integrantes: " + getNumeroDeIntegrantes());
+        System.out.println("Orquesta: " + getNombre());
+        System.out.println("Número de integrantes: " + getNumeroDeIntegrantes() + "\n");
     }
 }
 class Espectador{
@@ -178,12 +204,39 @@ class Espectador{
     }
     //método para mostrar la informacion
     public void mostrarInformacion() {
-        System.out.println("Nombre" + getNombre());
-        System.out.println("Cedula" +getCedula());
+        System.out.println("Nombre: " + getNombre() + " Cedula: " + getCedula());
     }
 }
 
 public class TestConcierto {
     public static void main(String[] args) {
+
+
+        Estadio miEstadio = new Estadio("Estadio Olímpico Atahualpa", 35000);
+
+        Concierto concierto = new Concierto("Lollapalooza", new java.util.Date(), miEstadio);
+
+
+        Solista solista1 = new Solista("Maluma", "Dirty Boy");
+        Solista solista2 = new Solista("Bad bunny", "El conejo malo");
+        Orquesta orquesta1 = new Orquesta("Don merardo y sus players", 25);
+        Orquesta orquesta2 = new Orquesta("Los Ángeles azules", 40);
+
+        concierto.addArtista(solista1);
+        concierto.addArtista(solista2);
+        concierto.addArtista(orquesta1);
+        concierto.addArtista(orquesta2);
+      
+        Espectador espectador1 = new Espectador("Juan", "1234567890");
+        Espectador espectador2 = new Espectador("Maria", "0987654321");
+        Espectador espectador3 = new Espectador("Carlos", "1122334455");
+
+        concierto.addEspectador(espectador1);
+        concierto.addEspectador(espectador2);
+        concierto.addEspectador(espectador3);
+
+    concierto.mostrarInformacion();
     }
 }
+
+
