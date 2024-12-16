@@ -4,32 +4,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class LecturaArchivo3 {
-	
-	//Primera parte del programa
+    
+	//Primera salida del programa
 	public static void main(String[] args) {
+		
 		try {
 		metodoUno();
 		} catch (Exception exception) {
-		/* 	System.err.printf(exception.getMessage());
-			exception.printStackTrace();
-
-		StackTraceElement[] traceElements = exception.getStackTrace();
-
-		System.out.println("\n Usando getStackTrace():");
-
-        for(StackTraceElement element : traceElements); {
-
-        System.out.printf("%s\n", "Método:" + element.getMethodName());
-        System.out.printf("%s\t", "Clase:" + element.getClassName());
-        System.out.printf("%s\t", "Linea:" + element.getLineNumber());
-        }
-        } */
-    }
-		//Tercera parte usando Thread.dumpStack()
-		System.out.print("\nSalida utilizando Thread.dumpStack():");
+		System.err.printf(exception.getMessage());
+		exception.printStackTrace();	
+	    }
+		//Tercera salida del programa usando Thread.dumpStack()
+		System.out.print("\nSalida utilizando Thread.dumpStack():\n");
 		Thread.dumpStack();
-	}
-	
+		}	
+	//Métodos
 	static void metodoUno (){
 		metodoDos();
 	}
@@ -47,8 +36,8 @@ public class LecturaArchivo3 {
 	static void metodoCuatro (){
 		LeerArchivo();
 	}
-	//Segunda parte usando printStackTrace();
-	static void LeerArchivo (){
+	//Segunda salida del programa usando printStackTrace();
+	static void LeerArchivo () {
 		try {
 		File archivo = new File ("archivo_intexistete.txt");
 		Scanner scanner = new Scanner(archivo);
