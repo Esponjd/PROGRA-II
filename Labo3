@@ -10,12 +10,21 @@ public class LecturaArchivo3 {
 		try {
 		metodoUno();
 		} catch (Exception exception) {
-			System.err.printf(exception.getMessage());
+		/* 	System.err.printf(exception.getMessage());
 			exception.printStackTrace();
-		StackTraceElement[] traceElements = exception.printStackTrace();
-		
-		
-		}
+
+		StackTraceElement[] traceElements = exception.getStackTrace();
+
+		System.out.println("\n Usando getStackTrace():");
+
+        for(StackTraceElement element : traceElements); {
+
+        System.out.printf("%s\n", "Método:" + element.getMethodName());
+        System.out.printf("%s\t", "Clase:" + element.getClassName());
+        System.out.printf("%s\t", "Linea:" + element.getLineNumber());
+        }
+        } */
+    }
 		//Tercera parte usando Thread.dumpStack()
 		System.out.print("\nSalida utilizando Thread.dumpStack():");
 		Thread.dumpStack();
