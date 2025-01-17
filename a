@@ -1,0 +1,28 @@
+JLabel etiquetaTitulo = new JLabel("Tabla de amortización con el sistema francés");
+		etiquetaTitulo.setBounds(375, 15, 300, 25);
+		
+		
+		JLabel etiquetaPrestamo = new JLabel("Monto del préstamo:");
+		etiquetaPrestamo.setBounds(20, 60, 125, 25);
+		JTextField textoPrestamo = new JTextField();
+		textoPrestamo.setBounds(250, 60, 150, 25);
+		
+		
+		JLabel etiquetaInteres = new JLabel("Tasa de interés (% anual)");
+		etiquetaInteres.setBounds(20, 100, 150, 25);
+		JTextField textoInteres = new JTextField();
+		textoInteres.setBounds(250, 100, 150, 25);
+		
+		JLabel etiquetaPlazo = new JLabel("Plazo (meses)");
+		etiquetaPlazo.setBounds(20, 140, 125, 25);
+		JTextField textoPlazo = new JTextField();
+		textoPlazo.setBounds(250, 140, 150, 25);
+		
+		JLabel etiquetaSeguro = new JLabel("Seguro de desgravamen (% anual)");
+		etiquetaSeguro.setBounds(20, 180, 200, 25);
+		JTextField textoSeguro = new JTextField("0.72");
+		textoSeguro.setBounds(250, 180, 150, 25);
+		textoSeguro.setEditable(false);
+		
+		JButton crearTabla = new JButton("Generar tabla");
+		crearTabla.setBounds(250, 220, 150, 25);
